@@ -45,6 +45,7 @@ const HomeNavigator = createStackNavigator(
 		},
 	}
 );
+
 const AboutNavigator = createStackNavigator(
 	{
 		About: { screen: About },
@@ -61,6 +62,7 @@ const AboutNavigator = createStackNavigator(
 		},
 	}
 );
+
 const ContactNavigator = createStackNavigator(
 	{
 		Contact: { screen: Contact },
@@ -89,6 +91,7 @@ const MainNavigator = createDrawerNavigator(
 		drawerBackgroundColor: '#CEC8FF',
 	}
 );
+
 const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
