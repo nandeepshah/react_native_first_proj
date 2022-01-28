@@ -18,6 +18,7 @@ import CampsiteInfo from './CampsiteInfoComponent';
 import Home from './HomeComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
+import Reservation from './ReservationComponent';
 import { connect } from 'react-redux';
 import {
 	fetchCampsites,
@@ -138,7 +139,30 @@ const ContactNavigator = createStackNavigator(
 		}),
 	}
 );
-
+const ReservationNavigator = createStackNavigator(
+	{
+		Reservation: { screen: Reservation },
+	},
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			headerStyle: {
+				backgroundColor: '#5637DD',
+			},
+			headerTintColor: '#fff',
+			headerTintStyle: {
+				color: '#fff',
+			},
+			headerLeft: (
+				<Icon
+					name='address-card'
+					type='font-awesome'
+					iconStyle={styles.stackIcon}
+					onPress={() => navigation.toggleDrawer()}
+				/>
+			),
+		}),
+	}
+);
 const CustomDrawerContentComponent = props => (
 	<ScrollView>
 		<SafeAreaView
@@ -165,6 +189,15 @@ const MainNavigator = createDrawerNavigator(
 	{
 		Home: { screen: HomeNavigator },
 		Directory: { screen: DirectoryNavigator },
+		Reservation: {
+			screen: ReservationNavigator,
+			navigationOptions: {
+				drawerLabel: 'Reserve Campsite',
+				drawerIcon: ({ tintColor }) => (
+					<Icon name='tree' type='font-awesome' size={24} color={tintColor} />
+				),
+			},
+		},
 		About: { screen: AboutNavigator },
 		Contact: { screen: ContactNavigator },
 	},
