@@ -19,6 +19,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Reservation from './ReservationComponent';
+import Favorites from './FavoritesComponent';
 import { connect } from 'react-redux';
 import {
 	fetchCampsites,
@@ -139,6 +140,7 @@ const ContactNavigator = createStackNavigator(
 		}),
 	}
 );
+
 const ReservationNavigator = createStackNavigator(
 	{
 		Reservation: { screen: Reservation },
@@ -163,6 +165,32 @@ const ReservationNavigator = createStackNavigator(
 		}),
 	}
 );
+
+const FavoritesNavigator = createStackNavigator(
+	{
+		Favorites: { screen: Favorites },
+	},
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			headerStyle: {
+				backgroundColor: '#5637DD',
+			},
+			headerTintColor: '#fff',
+			headerTintStyle: {
+				color: '#fff',
+			},
+			headerLeft: (
+				<Icon
+					name='heart'
+					type='font-awesome'
+					iconStyle={styles.stackIcon}
+					onPress={() => navigation.toggleDrawer()}
+				/>
+			),
+		}),
+	}
+);
+
 const CustomDrawerContentComponent = props => (
 	<ScrollView>
 		<SafeAreaView
@@ -209,6 +237,15 @@ const MainNavigator = createDrawerNavigator(
 				drawerLabel: 'Reserve Campsite',
 				drawerIcon: ({ tintColor }) => (
 					<Icon name='tree' type='font-awesome' size={24} color={tintColor} />
+				),
+			},
+		},
+		Reservation: {
+			screen: FavoritesNavigator,
+			navigationOptions: {
+				drawerLabel: 'My Favorites',
+				drawerIcon: ({ tintColor }) => (
+					<Icon name='heart' type='font-awesome' size={24} color={tintColor} />
 				),
 			},
 		},
