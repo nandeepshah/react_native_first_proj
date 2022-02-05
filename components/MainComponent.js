@@ -156,7 +156,7 @@ const ReservationNavigator = createStackNavigator(
 			},
 			headerLeft: (
 				<Icon
-					name='address-card'
+					name='tree'
 					type='font-awesome'
 					iconStyle={styles.stackIcon}
 					onPress={() => navigation.toggleDrawer()}
@@ -240,7 +240,7 @@ const MainNavigator = createDrawerNavigator(
 				),
 			},
 		},
-		Reservation: {
+		Favorites: {
 			screen: FavoritesNavigator,
 			navigationOptions: {
 				drawerLabel: 'My Favorites',

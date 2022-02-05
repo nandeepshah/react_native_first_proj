@@ -70,7 +70,7 @@ class About extends Component {
 					<Card title='Community Partners'>
 						<FlatList
 							data={this.props.partners.partners}
-							renderItem={renderPartner}
+							renderItem={renderPartners}
 							keyExtractor={item => item.id.toString()}
 						/>
 					</Card>
