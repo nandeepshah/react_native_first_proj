@@ -24,7 +24,7 @@ class Reservation extends Component {
 		};
 	}
 
-	static navigationOption = {
+	static navigationOptions = {
 		title: 'Reserve Campsite',
 	};
 
